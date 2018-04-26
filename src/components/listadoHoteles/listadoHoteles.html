@@ -1,18 +1,17 @@
-<ion-card *ngFor="let hotel of listHotels">
-    <ion-card-content>
+<ion-card-content>
             <ion-row>
               <ion-col style="max-width:32%;">
-                <img class="imagenHotel" src="assets/imgs/hotels/{{ hotel.image }}" >
+                <img class="imagenHotel" src="assets/imgs/hotels/{{ hotelRecibido.image }}" >
               </ion-col>
               <ion-col style="max-width:41%; border-right: 1px dashed darkgrey;">
-                <label class="nombreHotel">{{ hotel.name }}</label>
-                <ion-row>
-                    <ion-col>
+                <label class="nombreHotel">{{ hotelRecibido.name }}</label>
+                <ion-row style="margin-top: 12%;">
+                    <ion-col style="max-width: 30px;" *ngFor="let item of createRange(hotelRecibido.stars)">
                       <img class="iconoEstrella" src="assets/icon/filters/star.svg" >
                     </ion-col>
                 </ion-row>
                 <ion-row>
-                    <ion-col style="max-width:8%;" *ngFor="let amenitie of hotel.amenities">
+                    <ion-col style="max-width:8%;" *ngFor="let amenitie of hotelRecibido.amenities">
                       <img class="iconoAmenities" src="assets/icon/amenities/{{ amenitie }}.svg" >
                     </ion-col>
                 </ion-row>
@@ -24,9 +23,8 @@
                   </ion-col>
                 </ion-row>
                 <label style="color: #DF7401;font-size: 25px; margin-bottom: 1%;">ARS</label>
-                <label style="font-weight: bold;color: #DF7401;font-size: 40px">{{ hotel.price }}</label>
+                <label style="font-weight: bold;color: #DF7401;font-size: 40px">{{ hotelRecibido.price }}</label>
                 <button style="background-color:darkblue;height: 55px;font-size: 18px; margin-top: 6%;" ion-button full>Ver hotel</button>
               </ion-col>
             </ion-row>
-    </ion-card-content>
-  </ion-card>
+</ion-card-content>

@@ -10,6 +10,9 @@ import { HomePage } from '../pages/home/home';
 import { listadoHotelesComponent } from '../components/listadoHoteles/listadoHoteles';
 import { filtroHotelesComponent } from '../components/filtroHoteles/filtroHoteles';
 
+/*Extras*/
+import { VirtualListModule } from 'angular-virtual-list';
+
 /*Providers*/
 //import { API_AlMundoProvider } from '../providers/API_AlMundo';
 
@@ -23,7 +26,8 @@ import { filtroHotelesComponent } from '../components/filtroHoteles/filtroHotele
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    VirtualListModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
