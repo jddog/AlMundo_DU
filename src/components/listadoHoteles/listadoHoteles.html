@@ -1,0 +1,32 @@
+<ion-card *ngFor="let hotel of listHotels">
+    <ion-card-content>
+            <ion-row>
+              <ion-col style="max-width:32%;">
+                <img class="imagenHotel" src="assets/imgs/hotels/{{ hotel.image }}" >
+              </ion-col>
+              <ion-col style="max-width:41%; border-right: 1px dashed darkgrey;">
+                <label class="nombreHotel">{{ hotel.name }}</label>
+                <ion-row>
+                    <ion-col>
+                      <img class="iconoEstrella" src="assets/icon/filters/star.svg" >
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col style="max-width:8%;" *ngFor="let amenitie of hotel.amenities">
+                      <img class="iconoAmenities" src="assets/icon/amenities/{{ amenitie }}.svg" >
+                    </ion-col>
+                </ion-row>
+              </ion-col>
+              <ion-col style="max-width: 23%; margin-top: 4%; text-align: center; margin-left: 3%;">
+                <ion-row>
+                  <ion-col style="text-align: center; margin-bottom: 1%;">
+                      <label style="font-size: 17px;">Precio por noche por <br/> habitación</label>
+                  </ion-col>
+                </ion-row>
+                <label style="color: #DF7401;font-size: 25px; margin-bottom: 1%;">ARS</label>
+                <label style="font-weight: bold;color: #DF7401;font-size: 40px">{{ hotel.price }}</label>
+                <button style="background-color:darkblue;height: 55px;font-size: 18px; margin-top: 6%;" ion-button full>Ver hotel</button>
+              </ion-col>
+            </ion-row>
+    </ion-card-content>
+  </ion-card>

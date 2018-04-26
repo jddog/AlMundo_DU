@@ -7,6 +7,8 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { listadoHotelesComponent } from '../components/listadoHoteles/listadoHoteles';
+import { filtroHotelesComponent } from '../components/filtroHoteles/filtroHoteles';
 
 /*Providers*/
 //import { API_AlMundoProvider } from '../providers/API_AlMundo';
@@ -14,7 +16,9 @@ import { HomePage } from '../pages/home/home';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    listadoHotelesComponent,
+    filtroHotelesComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    listadoHotelesComponent,
+    filtroHotelesComponent
   ],
   providers: [
     StatusBar,

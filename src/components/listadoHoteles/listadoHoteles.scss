@@ -1,0 +1,28 @@
+component-listadoHoteles {
+    .imagenHotel
+    {
+        width: 425px; 
+        height:280px;
+    }
+
+    .nombreHotel
+    {
+        font-size: 21px;
+        color: #1E89CA;
+        font-weight: bold;
+        position: absolute;
+    }
+
+    .iconoEstrella{
+        width: 20px; 
+        height:20px;
+        margin-top: 7%;
+    }
+
+    .iconoAmenities{
+        width: 20px; 
+        height:20px;
+    }
+
+   
+}

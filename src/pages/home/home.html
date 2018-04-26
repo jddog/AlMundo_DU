@@ -7,34 +7,9 @@
 </ion-header>
 <ion-content padding style="background-color: aliceblue;">
   <div style="float: left;width: 22%;">
-    <ion-card>
-        <ion-card-content style="height: 400px;">
-                
-        </ion-card-content>
-      </ion-card>
+      <component-filtroHoteles></component-filtroHoteles>
     </div>
     <div style="float: left;width: 77%;">
-  <ion-card *ngFor="let hotel of listHotels">
-    <ion-card-content>
-            <ion-row>
-              <ion-col style="max-width:32%;">
-                <img class="imagenHotel" src="assets/imgs/hotels/{{ hotel.image }}" >
-              </ion-col>
-              <ion-col style="max-width:41%; border-right: 1px dashed darkgrey;">
-                <label class="nombreHotel">{{ hotel.name }}</label>
-              </ion-col>
-              <ion-col style="max-width: 23%; margin-top: 4%; text-align: center; margin-left: 3%;">
-                <ion-row>
-                  <ion-col style="text-align: center;">
-                      <label style="font-size: 17px;">Precio por noche por <br/> habitación</label>
-                  </ion-col>
-                </ion-row>
-                <label style="color: #DF7401;font-size: 35px; margin-bottom: 1%;">ARS</label>
-                <label style="font-weight: bold;color: #DF7401;font-size: 50px;">{{ hotel.price }}</label>
-                <button style="background-color:darkblue;height: 55px;font-size: 18px;" ion-button full>Ver hotel</button>
-              </ion-col>
-            </ion-row>
-    </ion-card-content>
-  </ion-card>
-</div>
+      <component-listadoHoteles></component-listadoHoteles>
+    </div>
 </ion-content>
