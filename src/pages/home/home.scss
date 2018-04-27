@@ -1,5 +1,4 @@
 page-home {
-
     .estiloWebDivFiltros{
       width: 21.5%;position: fixed;margin-top:0.1%;
     }
@@ -7,7 +6,38 @@ page-home {
     .estiloWebDivHoteles{
       width: 77%;margin-left: 22.5%;
     }
-    @media screen and (max-width: 600px) {
-        
+
+    #MostrarFiltros{
+      display: none;
+    }
+
+    #labelTituloFiltrar{
+      font-weight: bold;
+      color: #1E89CA;
+     }
+
+     #iconomostrarFiltros{
+      color: #1E89CA;
+      margin-left: 1%;
+     }
+
+    @media screen and (max-width: 1000px) {
+      #MostrarFiltros{
+        display: block;
+        text-align: center;
       }
+
+      .estiloWebDivFiltros{
+      margin-top:0%;
+      width: 100%;
+      position: initial;
+      }
+
+      .estiloWebDivHoteles{
+        margin-top:0%;
+        width: 100%;
+        position: initial;
+        margin-left: 0%;
+      }
+    }
 }

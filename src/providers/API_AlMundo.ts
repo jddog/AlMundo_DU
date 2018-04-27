@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { Hotel } from '../models/hotel';
+import { Filtro } from '../models/filtro';
 
 @Injectable()
 export class API_AlMundoProvider {
@@ -16,6 +17,11 @@ export class API_AlMundoProvider {
     getListhotels() {
        return this._http.get(this.urlJson).map((response: Response) => response.json());
     }
+
+
+    getListhotelsFilter(filtros : Filtro) {
+      return this._http.get(this.urlJson).map((response: Response) => response.json());
+   }
 
    
    }

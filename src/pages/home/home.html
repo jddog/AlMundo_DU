@@ -6,7 +6,13 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding style="background-color: aliceblue;">
-  <div class="estiloWebDivFiltros">
+  <div id="MostrarFiltros">
+      <label id="labelTituloFiltrar">Filtrar</label>
+      <ion-icon *ngIf="!flagMostrarFiltros" id="iconomostrarFiltros" ios="ios-arrow-dropdown" md="md-arrow-dropdown" (click)="mostrarFiltros()"></ion-icon>
+      <ion-icon *ngIf="flagMostrarFiltros" id="iconomostrarFiltros" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="mostrarFiltros()"></ion-icon>
+  </div>
+    
+  <div *ngIf="flagMostrarFiltros" class="estiloWebDivFiltros">
       <component-filtroHoteles (emitirFiltro)="obtenerFiltros($event)"></component-filtroHoteles>
     </div>
     <div class="estiloWebDivHoteles">

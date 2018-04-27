@@ -20,13 +20,13 @@
           </ion-col>
         </ion-row>
         <ion-row *ngIf="var_mostrarFiltroNombre">
-          <ion-col style="max-width: 50%;">
+          <ion-col id="colInputNombreHotel">
               <ion-item>
                   <ion-input [(ngModel)]="nombreHotel" placeholder="Ingrese el nombre del hotel"></ion-input>
                 </ion-item>
           </ion-col>
-          <ion-col>
-              <button style="background-color:darkblue" (click)="emitirFiltros(-1, false)" ion-button>Aceptar</button>
+          <ion-col id="colBottonNombreHotel">
+              <button style="background-color:darkblue" (click)="emitirFiltros()" ion-button>Aceptar</button>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -48,7 +48,7 @@
           </ion-row>
           <ion-row *ngIf="var_mostrarFiltroEstrella" style="margin-top: 4%;">
             <ion-col style="max-width: 25px;">
-                <ion-checkbox (ionChange)="emitirFiltros(-1, true)"></ion-checkbox>
+                <ion-checkbox checked="True" (ionChange)="validarFiltroEstrellas(-1)"></ion-checkbox>
             </ion-col>
             <ion-col >
                 <label id="labelTodasEstrellas">Todas las estrellas</label>
@@ -57,7 +57,7 @@
           <div *ngIf="var_mostrarFiltroEstrella">
             <ion-row *ngFor="let row of rowStars">
                 <ion-col style="max-width: 25px;">
-                    <ion-checkbox (ionChange)="emitirFiltros(row, false)"></ion-checkbox>
+                    <ion-checkbox (ionChange)="validarFiltroEstrellas(row)"></ion-checkbox>
                  </ion-col>
                  <ion-col *ngFor="let col of createRange(row)" style="max-width: 30px;">
                       <img id="iconoLupa" src="assets/icon/filters/star.svg" >

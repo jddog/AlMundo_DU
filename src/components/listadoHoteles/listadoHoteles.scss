@@ -10,7 +10,6 @@ component-listadoHoteles {
         font-size: 21px;
         color: #1E89CA;
         font-weight: bold;
-        position: absolute;
     }
 
     #iconoEstrella{
@@ -35,12 +34,49 @@ component-listadoHoteles {
    .bottonVerHotel{
     background-color:darkblue;height: 55px;font-size: 18px; margin-top: 6%;
    }
-
+   .seccion1{
+    max-width:32%;
+   }
    .seccion2{
     max-width:41%; border-right: 1px dashed darkgrey;
    }
-
    .seccion3{
     max-width: 23%; margin-top: 4%; text-align: center; margin-left: 3%;
+   }
+
+   #iconosDisponibles{
+    max-width:8%;
+   }
+
+   #lblDescripcion{
+    font-size: 17px;
+   }
+   
+
+
+   @media screen and (max-width: 1000px) {
+    .contentsMovil{
+        display:contents;
+       }
+    .imagenHotel{
+        width:100%;
+    }
+    #nombreHotel{
+        position: initial;
+    }
+    #contedorInfoHotel1{
+        margin-top: 3%;
+        border-bottom: 1px dashed darkgrey;
+        width: 100%;
+    }
+
+    #contedorInfoHotel2{
+        width: 100%;
+        margin-top: 3%;
+    }
+
+    #lblDescripcion{
+        font-size: 15px;
+       }
    }
 }

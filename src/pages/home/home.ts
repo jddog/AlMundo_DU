@@ -19,7 +19,7 @@ export class HomePage {
  public filtrosRecibidos: Filtro; 
  public listHotels: Array<Hotel> = new Array<Hotel>();
  public listHotelsOriginal: Array<Hotel> = new Array<Hotel>();
-
+flagMostrarFiltros : Boolean = true;
   constructor(public navCtrl: NavController, 
               public API_AlMundo: API_AlMundoProvider,
               private toastCtrl: ToastController) {
@@ -32,13 +32,20 @@ export class HomePage {
   }
 
   obtenerFiltros(event):void{
+
     this.listHotels = this.listHotelsOriginal
     this.filtrosRecibidos = event;
-    this.listHotels = this.listHotels.filter(f => (this.filtrosRecibidos.nombreHotel != "" && f.name.toLowerCase().indexOf(this.filtrosRecibidos.nombreHotel.toLowerCase()) !== -1
-      || this.filtrosRecibidos.nombreHotel =="" && f.name != "")
-      && ((f.stars == this.filtrosRecibidos.estrellas) 
-      || (this.filtrosRecibidos.estrellas == -1 && f.stars != -1)));
+    
+    this.listHotels = this.listHotels.filter(f => (this.filtrosRecibidos.nombreHotel != "" && f.name.toLowerCase().indexOf(this.filtrosRecibidos.nombreHotel.toLowerCase()) !== -1)
+    || (this.filtrosRecibidos.estrellas.find(fin => (fin != -1 && fin == f.stars) || (fin == -1)))
+  );
 
+  /* CUANDO ESTE EL API
+  this.API_AlMundo.getListhotelsFilter()
+  .subscribe(response => {
+    this.listHotels = response;
+  });
+*/
       this.mostrarToast("Filtros aplicados correctamente");
   }
 
@@ -50,5 +57,10 @@ export class HomePage {
     });
 
     toast.present();
+  }
+
+
+  mostrarFiltros(){
+    this.flagMostrarFiltros= !this.flagMostrarFiltros;
   }
 }

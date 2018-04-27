@@ -1,30 +1,36 @@
 <ion-card-content>
             <ion-row>
-              <ion-col style="max-width:32%;">
+              <ion-col class="seccion1 contentsMovil">
                 <img class="imagenHotel" src="assets/imgs/hotels/{{ hotelRecibido.image }}" >
               </ion-col>
-              <ion-col class="seccion2">
-                <label id="nombreHotel">{{ hotelRecibido.name }}</label>
-                <ion-row style="margin-top: 12%;">
-                    <ion-col style="max-width: 30px;" *ngFor="let item of createRange(hotelRecibido.stars)">
-                      <img id="iconoEstrella" src="assets/icon/filters/star.svg" >
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col style="max-width:8%;" *ngFor="let amenitie of hotelRecibido.amenities">
+              <ion-col class="seccion2 contentsMovil">
+                <div id="contedorInfoHotel1">
+                <div>
+                    <label id="nombreHotel">{{ hotelRecibido.name }}</label>
+                </div>
+                  <ion-row>
+                      <ion-col style="max-width: 30px;" *ngFor="let item of createRange(hotelRecibido.stars)">
+                        <img id="iconoEstrella" src="assets/icon/filters/star.svg" >
+                      </ion-col>
+                 </ion-row>
+                <ion-row style="margin-bottom: 3%;">
+                    <ion-col id="iconosDisponibles" *ngFor="let amenitie of hotelRecibido.amenities">
                       <img id="iconoAmenities" src="assets/icon/amenities/{{ amenitie }}.svg" >
                     </ion-col>
                 </ion-row>
+              </div>
               </ion-col>
-              <ion-col class="seccion3">
+              <ion-col class="seccion3 contentsMovil">
+                <div id="contedorInfoHotel2">
                 <ion-row>
                   <ion-col style="text-align: center; margin-bottom: 1%;">
-                      <label style="font-size: 17px;">Precio por noche por <br/> habitación</label>
+                      <label id="lblDescripcion">Precio por noche por <br/> habitación</label>
                   </ion-col>
                 </ion-row>
                 <label id="labelARS">ARS</label>
                 <label id="precio">{{ hotelRecibido.price }}</label>
                 <button class="bottonVerHotel" ion-button full>Ver hotel</button>
+              </div>
               </ion-col>
             </ion-row>
 </ion-card-content>

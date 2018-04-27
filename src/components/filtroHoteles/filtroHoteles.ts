@@ -26,7 +26,8 @@ export class filtroHotelesComponent{
  
 
   constructor(public navCtrl: NavController, public API_AlMundo: API_AlMundoProvider) {
-
+    this.modeloFiltroRetorno.estrellas = new Array<Number>(); 
+    this.modeloFiltroRetorno.estrellas.push(-1);
   }
 
   mostrarFiltroNombre(){
@@ -38,9 +39,24 @@ export class filtroHotelesComponent{
     this.var_mostrarFiltroEstrella = this.var_mostrarFiltroEstrella? false: true;
   }
 
-  emitirFiltros(estrella, flagCheckTodos){
+  validarFiltroEstrellas(estrella){
+    
+      /*Se valida si existe ya el filtro en el arreglo para quitarlo o agregarlo*/
+      var index = this.modeloFiltroRetorno.estrellas.indexOf(estrella);
+      if(index >= 0)
+      {
+          this.modeloFiltroRetorno.estrellas.splice(index, 1);
+      }
+      else
+      {
+          this.modeloFiltroRetorno.estrellas.push(estrella);
+      }
+    
+    this.emitirFiltros();
+  }
+
+  emitirFiltros(){
     this.modeloFiltroRetorno.nombreHotel = this.nombreHotel;
-    this.modeloFiltroRetorno.estrellas = estrella == -1 && this.modeloFiltroRetorno.estrellas != undefined && !flagCheckTodos? this.modeloFiltroRetorno.estrellas: estrella;
     this.emitirFiltro.emit(this.modeloFiltroRetorno);
   }
 
