@@ -14,14 +14,16 @@ page-home {
     #labelTituloFiltrar{
       font-weight: bold;
       color: #1E89CA;
-     }
+    }
 
      #iconomostrarFiltros{
       color: #1E89CA;
       margin-left: 1%;
-     }
+    }
+
 
     @media screen and (max-width: 1000px) {
+
       #MostrarFiltros{
         display: block;
         text-align: center;
@@ -40,4 +42,5 @@ page-home {
         margin-left: 0%;
       }
     }
+
 }

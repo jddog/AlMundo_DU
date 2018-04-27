@@ -17,7 +17,6 @@ export class listadoHotelesComponent  {
   constructor(public navCtrl: NavController) {
   }
 
-
   createRange(number){
     var items: number[] = [];
     for(var i = 1; i <= number; i++){
@@ -25,6 +24,5 @@ export class listadoHotelesComponent  {
     }
     return items;
   }
-
 
 }

@@ -53,17 +53,19 @@ component-listadoHoteles {
    }
    
 
-
    @media screen and (max-width: 1000px) {
     .contentsMovil{
         display:contents;
-       }
+    }
+
     .imagenHotel{
         width:100%;
     }
+
     #nombreHotel{
         position: initial;
     }
+
     #contedorInfoHotel1{
         margin-top: 3%;
         border-bottom: 1px dashed darkgrey;
@@ -77,6 +79,7 @@ component-listadoHoteles {
 
     #lblDescripcion{
         font-size: 15px;
-       }
+    }
    }
+   
 }

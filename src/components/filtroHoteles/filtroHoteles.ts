@@ -20,10 +20,9 @@ export class filtroHotelesComponent{
   private var_mostrarFiltroNombre : Boolean = false;
   private var_mostrarFiltroEstrella : Boolean = false;
   private nombreHotel : String = "";
-  /*Arreglos para estrellas*/
   private rowStars : Number[] = [5,4,3,2,1];
+  public flagTodos: Boolean = true;
   @Output() emitirFiltro = new EventEmitter();
- 
 
   constructor(public navCtrl: NavController, public API_AlMundo: API_AlMundoProvider) {
     this.modeloFiltroRetorno.estrellas = new Array<Number>(); 
@@ -31,7 +30,6 @@ export class filtroHotelesComponent{
   }
 
   mostrarFiltroNombre(){
-    
     this.var_mostrarFiltroNombre = this.var_mostrarFiltroNombre? false: true;
   }
 
@@ -40,7 +38,6 @@ export class filtroHotelesComponent{
   }
 
   validarFiltroEstrellas(estrella){
-    
       /*Se valida si existe ya el filtro en el arreglo para quitarlo o agregarlo*/
       var index = this.modeloFiltroRetorno.estrellas.indexOf(estrella);
       if(index >= 0)
@@ -51,7 +48,6 @@ export class filtroHotelesComponent{
       {
           this.modeloFiltroRetorno.estrellas.push(estrella);
       }
-    
     this.emitirFiltros();
   }
 

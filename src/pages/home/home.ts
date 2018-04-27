@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController  } from 'ionic-angular';
+import { NavController  } from 'ionic-angular';
 
 /*Models*/
 import { Filtro } from '../../models/filtro';
@@ -19,10 +19,10 @@ export class HomePage {
  public filtrosRecibidos: Filtro; 
  public listHotels: Array<Hotel> = new Array<Hotel>();
  public listHotelsOriginal: Array<Hotel> = new Array<Hotel>();
-flagMostrarFiltros : Boolean = true;
+ public flagMostrarFiltros : Boolean = true;
+
   constructor(public navCtrl: NavController, 
-              public API_AlMundo: API_AlMundoProvider,
-              private toastCtrl: ToastController) {
+              public API_AlMundo: API_AlMundoProvider) {
 
     this.API_AlMundo.getListhotels()
     .subscribe(response => {
@@ -46,21 +46,10 @@ flagMostrarFiltros : Boolean = true;
     this.listHotels = response;
   });
 */
-      this.mostrarToast("Filtros aplicados correctamente");
   }
-
-  mostrarToast(mensaje) {
-    let toast = this.toastCtrl.create({
-      message: mensaje,
-      duration: 3000,
-      position: 'top'
-    });
-
-    toast.present();
-  }
-
-
+  
   mostrarFiltros(){
     this.flagMostrarFiltros= !this.flagMostrarFiltros;
   }
+
 }
