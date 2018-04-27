@@ -6,13 +6,12 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding style="background-color: aliceblue;">
-  <div style=" float: left;width: 22%;position: fixed;margin-top:0.1%;">
-      <component-filtroHoteles></component-filtroHoteles>
+  <div class="estiloWebDivFiltros">
+      <component-filtroHoteles (emitirFiltro)="obtenerFiltros($event)"></component-filtroHoteles>
     </div>
-    <div style="float: left;width: 77%;margin-left: 22.5%;">
+    <div class="estiloWebDivHoteles">
         <ion-card *ngFor="let hotel of listHotels">
             <component-listadoHoteles [hotelRecibido]="hotel"></component-listadoHoteles>
         </ion-card>
-      
     </div>
 </ion-content>

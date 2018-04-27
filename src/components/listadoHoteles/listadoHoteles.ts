@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 
@@ -10,15 +10,11 @@ import { Filtro } from '../../models/filtro';
   selector: 'component-listadoHoteles',
   templateUrl: 'listadoHoteles.html'
 })
-export class listadoHotelesComponent implements OnInit {
+export class listadoHotelesComponent  {
   @Input() hotelRecibido: Hotel;
   fakeArray = new Array(4);
   suscri : any;
   constructor(public navCtrl: NavController) {
-  }
-
-  ngOnInit(){
-   
   }
 
 

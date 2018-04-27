@@ -1,5 +1,5 @@
 component-filtroHoteles {
-   #labelTitulo{
+   .labelTitulo{
     font-weight: bold;
     color: darkslategray;
    }
@@ -7,5 +7,21 @@ component-filtroHoteles {
    #iconoLupa{
         width: 20px;
         height: 20px;
+   }
+
+   #labelHotel{
+    color:#1E89CA;font-weight: bold;
+   }
+
+   #labelEstrellas{
+    color:#1E89CA;font-weight: bold;
+   }
+
+   #labelTodasEstrellas{
+    color: darkslategray;font-weight: bold;
+   }
+
+   .iconoFlechaOcultar{
+    color:#1E89CA; cursor: pointer;
    }
 }

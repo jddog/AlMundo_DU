@@ -12,11 +12,11 @@
               <img id="iconoLupa" src="assets/icon/filters/search.svg" >
           </ion-col>
           <ion-col>
-              <label style="color:#1E89CA;font-weight: bold;">Nombre de hotel</label>
+              <label id="labelHotel">Nombre de hotel</label>
           </ion-col>
           <ion-col style="max-width: 20px;">
-                <ion-icon *ngIf="!var_mostrarFiltroNombre" style="color:#1E89CA; cursor: pointer;" ios="ios-arrow-dropdown" md="md-arrow-dropdown" (click)="mostrarFiltroNombre()"></ion-icon>
-                <ion-icon *ngIf="var_mostrarFiltroNombre" style="color:#1E89CA; cursor: pointer;" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="mostrarFiltroNombre()"></ion-icon>
+                <ion-icon *ngIf="!var_mostrarFiltroNombre" class="iconoFlechaOcultar" ios="ios-arrow-dropdown" md="md-arrow-dropdown" (click)="mostrarFiltroNombre()"></ion-icon>
+                <ion-icon *ngIf="var_mostrarFiltroNombre" class="iconoFlechaOcultar" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="mostrarFiltroNombre()"></ion-icon>
           </ion-col>
         </ion-row>
         <ion-row *ngIf="var_mostrarFiltroNombre">
@@ -26,7 +26,7 @@
                 </ion-item>
           </ion-col>
           <ion-col>
-              <button style="background-color:darkblue" (click)="emitirFiltros()" ion-button>Aceptar</button>
+              <button style="background-color:darkblue" (click)="emitirFiltros(-1, false)" ion-button>Aceptar</button>
           </ion-col>
         </ion-row>
       </ion-card-content>
@@ -39,93 +39,31 @@
                     <img id="iconoLupa" src="assets/icon/filters/star.svg" >
             </ion-col>
             <ion-col>
-                <label style="color:#1E89CA;font-weight: bold;">Estrellas</label>
+                <label id="labelEstrellas">Estrellas</label>
             </ion-col>
             <ion-col style="max-width: 20px;">
-                  <ion-icon *ngIf="!var_mostrarFiltroEstrella" style="color:#1E89CA;cursor: pointer;" ios="ios-arrow-dropdown" md="md-arrow-dropdown" (click)="mostrarFiltroEstrellas()"></ion-icon>
-                  <ion-icon *ngIf="var_mostrarFiltroEstrella" style="color:#1E89CA;cursor: pointer;" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="mostrarFiltroEstrellas()"></ion-icon>
+                  <ion-icon *ngIf="!var_mostrarFiltroEstrella" class="iconoFlechaOcultar" ios="ios-arrow-dropdown" md="md-arrow-dropdown" (click)="mostrarFiltroEstrellas()"></ion-icon>
+                  <ion-icon *ngIf="var_mostrarFiltroEstrella" class="iconoFlechaOcultar" ios="ios-arrow-dropup" md="md-arrow-dropup" (click)="mostrarFiltroEstrellas()"></ion-icon>
             </ion-col>
           </ion-row>
           <ion-row *ngIf="var_mostrarFiltroEstrella" style="margin-top: 4%;">
             <ion-col style="max-width: 25px;">
-                <ion-checkbox></ion-checkbox>
+                <ion-checkbox (ionChange)="emitirFiltros(-1, true)"></ion-checkbox>
             </ion-col>
             <ion-col >
-                <label style="color: darkslategray;font-weight: bold;">Todas las estrellas</label>
+                <label id="labelTodasEstrellas">Todas las estrellas</label>
             </ion-col>
           </ion-row>
-          <ion-row *ngIf="var_mostrarFiltroEstrella">
+          <div *ngIf="var_mostrarFiltroEstrella">
+            <ion-row *ngFor="let row of rowStars">
                 <ion-col style="max-width: 25px;">
-                    <ion-checkbox></ion-checkbox>
+                    <ion-checkbox (ionChange)="emitirFiltros(row, false)"></ion-checkbox>
                  </ion-col>
-                 <ion-col style="max-width: 30px;">
+                 <ion-col *ngFor="let col of createRange(row)" style="max-width: 30px;">
                       <img id="iconoLupa" src="assets/icon/filters/star.svg" >
                   </ion-col>
-                  <ion-col style="max-width: 30px;">
-                          <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                  </ion-col>
-                  <ion-col style="max-width: 30px;">
-                        <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                </ion-col>
-                <ion-col style="max-width: 30px;">
-                        <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                </ion-col>
-                  <ion-col>
-                        <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                </ion-col>
               </ion-row>
-              <ion-row *ngIf="var_mostrarFiltroEstrella">
-                    <ion-col style="max-width: 25px;">
-                        <ion-checkbox></ion-checkbox>
-                     </ion-col>
-                     <ion-col style="max-width: 30px;">
-                          <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                      </ion-col>
-                      <ion-col style="max-width: 30px;">
-                              <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                      </ion-col>
-                      <ion-col style="max-width: 30px;">
-                            <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                    </ion-col>
-                      <ion-col>
-                            <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                    </ion-col>
-                  </ion-row>
-             
-            <ion-row *ngIf="var_mostrarFiltroEstrella">
-                    <ion-col style="max-width: 25px;">
-                        <ion-checkbox></ion-checkbox>
-                     </ion-col>
-                     <ion-col style="max-width: 30px;">
-                          <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                      </ion-col>
-                      <ion-col style="max-width: 30px;">
-                              <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                      </ion-col>
-                      <ion-col>
-                            <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                    </ion-col>
-            </ion-row>
-            <ion-row *ngIf="var_mostrarFiltroEstrella">
-                    <ion-col style="max-width: 25px;">
-                        <ion-checkbox></ion-checkbox>
-                     </ion-col>
-                     <ion-col style="max-width: 30px;">
-                          <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                      </ion-col>
-                      <ion-col>
-                              <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                      </ion-col>
-                  </ion-row>
-                  <ion-row *ngIf="var_mostrarFiltroEstrella">
-                        <ion-col style="max-width: 25px;">
-                            <ion-checkbox></ion-checkbox>
-                          </ion-col>
-                      <ion-col>
-                            <img id="iconoLupa" src="assets/icon/filters/star.svg" >
-                      </ion-col>
-                      </ion-row> 
-                     
+          </div>
         </ion-card-content>
       </ion-card>
 </ion-card>
