@@ -3,12 +3,14 @@ import { IonicPageModule } from 'ionic-angular';
 import { HomePage } from './home';
 import { listadoHotelesComponent } from '../../components/listadoHoteles/listadoHoteles';
 import { filtroHotelesComponent } from '../../components/filtroHoteles/filtroHoteles';
+import { detalleHotelComponent } from '../../components/detalleHotel/detalleHotel';
 
 @NgModule({
   declarations: [
     HomePage,
     listadoHotelesComponent,
-    filtroHotelesComponent
+    filtroHotelesComponent,
+    detalleHotelComponent
   ],
   imports: [
     IonicPageModule.forChild(HomePage),
@@ -16,7 +18,8 @@ import { filtroHotelesComponent } from '../../components/filtroHoteles/filtroHot
   entryComponents: [
     HomePage,
     listadoHotelesComponent,
-    filtroHotelesComponent
+    filtroHotelesComponent,
+    detalleHotelComponent
   ]
 })
 export class HomePageModule {}
