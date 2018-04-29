@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptionsArgs, Jsonp, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { Hotel } from '../models/hotel';
@@ -8,19 +8,25 @@ import { Filtro } from '../models/filtro';
 @Injectable()
 export class API_AlMundoProvider {
   //Declaracion de variables
-    private urlJson= 'assets/data/data.json';
+    private urlAPI= 'http://localhost:9000/AlMundoHotelsAPI/';
     
-    constructor(private _http: Http) {
+    constructor(private _http: Http, private _jsonp: Jsonp) {
+
     }
     
     //Metodo encaragado de obtener el listado de hoteles a partir de un archivo .json
     getListhotels() {
-       return this._http.get(this.urlJson).map((response: Response) => response.json());
+       return this._http.get(this.urlAPI+'hotels').map((response: Response) => response.json());
     }
 
 
     getListhotelsFilter(filtros : Filtro) {
-      return this._http.get(this.urlJson).map((response: Response) => response.json());
+      let heade = new Headers();
+      heade.append('Content-Type', 'application/json');
+      let filtro = JSON.stringify(filtros);
+      
+      console.log(filtro);
+      return this._http.post(this.urlAPI+'hotelsFilter',filtro,{headers : heade}).map((response: Response) => response.json());
    }
 
    

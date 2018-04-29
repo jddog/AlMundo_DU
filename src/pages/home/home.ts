@@ -26,26 +26,19 @@ export class HomePage {
 
     this.API_AlMundo.getListhotels()
     .subscribe(response => {
-      this.listHotels = response;
-      this.listHotelsOriginal = response;
+      this.listHotels = response.hotels;
+      this.listHotelsOriginal = response.hotels;
     });
   }
 
   obtenerFiltros(event):void{
-
-    this.listHotels = this.listHotelsOriginal
     this.filtrosRecibidos = event;
     
-    this.listHotels = this.listHotels.filter(f => (this.filtrosRecibidos.nombreHotel != "" && f.name.toLowerCase().indexOf(this.filtrosRecibidos.nombreHotel.toLowerCase()) !== -1)
-    || (this.filtrosRecibidos.estrellas.find(fin => (fin != -1 && fin == f.stars) || (fin == -1)))
-  );
+    this.API_AlMundo.getListhotelsFilter(this.filtrosRecibidos)
+    .subscribe(response => {
+      this.listHotels = response.hotelsFilter;
+    });
 
-  /* CUANDO ESTE EL API
-  this.API_AlMundo.getListhotelsFilter()
-  .subscribe(response => {
-    this.listHotels = response;
-  });
-*/
   }
   
   mostrarFiltros(){
