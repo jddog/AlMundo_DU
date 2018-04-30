@@ -8,7 +8,7 @@ import { Filtro } from '../models/filtro';
 @Injectable()
 export class API_AlMundoProvider {
   //Declaracion de variables
-    private urlAPI= 'http://localhost:9000/AlMundoHotelsAPI/';
+    private urlAPI= 'https://dry-atoll-76166.herokuapp.com/AlMundoHotelsAPI/';
     
     constructor(private _http: Http, private _jsonp: Jsonp) {
 
