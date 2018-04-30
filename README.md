@@ -55,3 +55,4 @@ ionic serve
 - Se implemento funcionalidad para ver el detalle del hotel al dar click en le botton "Ver Hotel"
 - Se implemento funcionalidad en real time, para visualizar cuantos usuarios se encuentran viendo el detalle del hotel en el mismo momento
 - En los filtros si aun se encuentra activo el check de "Consultar Todos" siempre traera todos los hoteles
+- Hubo imagenes que no se encontraban fisicamente, se implemento funcionalidad para mostrar una imagen comun en este caso
