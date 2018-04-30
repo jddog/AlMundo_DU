@@ -1,7 +1,7 @@
 <ion-card-content>
             <ion-row>
               <ion-col class="seccion1 contentsMovil">
-                <img class="imagenHotel" src="assets/imgs/hotels/{{ hotelRecibido.image }}" >
+                <img class="imagenHotel" src="assets/imgs/hotels/{{ hotelRecibido.image }}" onerror="this.src='assets/imgs/sinImagen.png';">
               </ion-col>
               <ion-col class="seccion2 contentsMovil">
                 <div id="contedorInfoHotel1">
@@ -10,12 +10,12 @@
                 </div>
                   <ion-row>
                       <ion-col style="max-width: 30px;" *ngFor="let item of createRange(hotelRecibido.stars)">
-                        <img id="iconoEstrella" src="assets/icon/filters/star.svg" >
+                        <img id="iconoEstrella" src="assets/icon/filters/star.svg">
                       </ion-col>
                  </ion-row>
                 <ion-row style="margin-bottom: 3%;">
                     <ion-col id="iconosDisponibles" *ngFor="let amenitie of hotelRecibido.amenities">
-                      <img id="iconoAmenities" src="assets/icon/amenities/{{ amenitie }}.svg" >
+                      <img id="iconoAmenities" src="assets/icon/amenities/{{ amenitie }}.svg">
                     </ion-col>
                 </ion-row>
               </div>
